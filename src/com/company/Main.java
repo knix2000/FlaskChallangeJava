@@ -6,6 +6,8 @@ import java.util.Queue;
 
 public class Main
 {
+    private static boolean success;
+
     public static void main(String[] args)
     {
         Node startNode=new Node(null, 0, 0);
@@ -13,23 +15,24 @@ public class Main
         Queue<Node> Q=new LinkedList<>();
         Q.add(startNode);
 
-        var lkjsdf=getChildNodes(Q, false);
+        //var lkjsdf=
+        getChildNodes(Q);
 
-        if(lkjsdf==true)
+        if(success==true)
         {
             System.out.println("Success!!!!!111!!!");
         }
     }
 
-    public static boolean getChildNodes(Queue<Node> Q, boolean success)
+    public static void getChildNodes(Queue<Node> Q)
     {
         if(success)
         {
-            return success;
+            return;
         }
         if(Q.size()<=0)
         {
-            return success;
+            return;
         }
         Node parent=Q.remove();
 
@@ -40,7 +43,7 @@ public class Main
         if(parent.getSmall()==goal || parent.getBig()==goal)
         {
             success=true;
-            return success;
+            return;
         }
 
         if(parent.getBig()==5)
@@ -96,9 +99,9 @@ public class Main
             System.out.print("0," + totalContent +"  ");
         }
 
-        getChildNodes(Q, success);
+        getChildNodes(Q);
 
-        return success;
+        return;
     }
 }
 
